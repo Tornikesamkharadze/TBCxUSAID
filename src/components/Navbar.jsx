@@ -3,6 +3,7 @@ import routes from "../routes";
 import { Link } from "react-router-dom";
 import headerLogo from "../assets/images/headerLogo.png";
 import styled from "styled-components";
+import BurgerMenu from "./BurgerMenu";
 
 const Navbar = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -29,6 +30,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <div className="mobile">
+            <BurgerMenu />
+          </div>
         </Nav>
       </header>
     </>
@@ -57,10 +61,9 @@ const Nav = styled.nav`
 const StyledLink = styled(Link)`
   padding: 0px 20px;
   text-decoration: none;
-  color: ${(props) => (props.routid === 3 ? "rgb(0, 163, 193)" : "#ffff")};
-
+  color: ${(props) => (props.routid === 3 ? "rgb(0,163,224)" : "#ffff")};
   &:hover {
-    color: rgb(0, 163, 193);
+    color: rgb(0, 163, 224);
     transition: 1s;
   }
 `;
