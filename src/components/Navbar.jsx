@@ -63,7 +63,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-around;
   height: 84px;
-  padding: 0px 12%;
+  padding: 0px 17%;
   background-color: rgb(26, 30, 31);
   #navbar {
     @media (max-width: 975px) {
@@ -78,6 +78,7 @@ const Nav = styled.nav`
       height: 100vh;
       background-color: rgb(34, 34, 34);
       transition: 0.3s ease-in-out;
+      z-index: 40;
       li {
         margin-top: 50px;
       }
