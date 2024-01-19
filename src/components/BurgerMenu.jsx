@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ toggleBurgerMenu }) => {
   return (
-    <StyledBurgerMenu>
+    <StyledBurgerMenu onClick={toggleBurgerMenu}>
       <StyledLine className="isleft" />
       <StyledLine className="ismiddle" />
       <StyledLine className="isright" />
@@ -15,10 +15,11 @@ const StyledBurgerMenu = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  max-width: 40px;
 `;
 
 const StyledLine = styled.div`
-  height: 5px;
+  height: 4px;
   background-color: #fff;
   margin: 5px 0;
   transition: 0.3s;
