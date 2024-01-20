@@ -112,7 +112,10 @@ const StyledLink = styled(Link)`
   color: rgb(0, 173, 237);
   font-size: 17px;
   font-weight: 700;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
   &:hover {
+    opacity: 0.5;
   }
 `;
 
