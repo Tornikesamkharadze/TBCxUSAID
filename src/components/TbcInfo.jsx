@@ -35,12 +35,13 @@ const TbcWrapper = styled.section`
 
 const TextWrapper = styled.div`
   max-width: 952px;
-  padding: 0 20px;
+  padding: 44px 20px;
   h1 {
     font-weight: bolder;
     font-size: 28px;
     line-height: 1.6em;
     color: #f4f4f4;
+    font-weight: 300;
     @media screen and (max-width: 768px) {
       font-size: 18px;
     }
