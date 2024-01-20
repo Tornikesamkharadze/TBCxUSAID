@@ -6,9 +6,13 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const CoursesCards = () => {
   return (
-    <CardsWrapper>
-      <div>
-        <h6 className="heading6">სასწავლო კურსები</h6>
+    <>
+      <HeadingWapper>
+        <div>
+          <h6 className="heading6">სასწავლო კურსები</h6>
+        </div>
+      </HeadingWapper>
+      <CardsWrapper>
         <CardGrid>
           {CoursesData.map((course) => (
             <Card key={course.id}>
@@ -30,23 +34,33 @@ const CoursesCards = () => {
             </Card>
           ))}
         </CardGrid>
-      </div>
-    </CardsWrapper>
+      </CardsWrapper>
+    </>
   );
 };
 
-const CardsWrapper = styled.section`
+const HeadingWapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   width: 100%;
   background-color: rgb(22, 22, 22);
-  .heading6 {
-    color: white;
-    font-size: 24px;
-    font-weight: 300;
-    margin: 50px 0px 80px 20px;
+  div {
+    max-width: 962px;
+    width: 100%;
   }
+  .heading6 {
+    color: #ffff;
+    font-weight: 300;
+    font-size: 24px;
+    padding: 50px 0px 80px 20px;
+  }
+`;
+
+const CardsWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(22, 22, 22);
 `;
 
 const CardGrid = styled.div`
@@ -57,6 +71,7 @@ const CardGrid = styled.div`
   max-width: 962px;
   width: 100%;
   cursor: default;
+  padding-bottom: 50px;
 `;
 
 const Card = styled.div`
