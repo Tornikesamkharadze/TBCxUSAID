@@ -17,7 +17,7 @@ const CoursesCards = () => {
           {CoursesData.map((course) => (
             <Card key={course.id}>
               <img src={course.imageUrl} alt={course.courseTitle} />
-              <span className="span">{course.courseTitle}</span>
+              <h5 className="heading5">{course.courseTitle}</h5>
               <p>{course.courseStatus}</p>
               <div>
                 <IoIosArrowRoundForward
@@ -80,25 +80,26 @@ const Card = styled.div`
   min-height: 414px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 2px rgb(85, 85, 85);
+  box-shadow: 0 1px 1px rgb(85, 85, 85);
 
   img {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-bottom: 1px solid #ddd;
   }
 
-  .span {
+  .heading5 {
     font-size: 18px;
-    color: rgb(22, 22, 22);
     font-weight: 500;
     margin: 15px 0 10px;
+    color: #ffff;
+    margin: 30px 15px;
   }
 
   p {
-    color: #777;
+    color: #ffff;
     margin-bottom: 10px;
+    margin: 0px 0px 90px 15px;
   }
 
   div {
