@@ -63,7 +63,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-around;
   height: 84px;
-  padding: 0px 17%;
+  padding: 0px 16%;
   background-color: rgb(26, 30, 31);
   #navbar {
     @media (max-width: 975px) {

@@ -34,7 +34,7 @@ const TbcWrapper = styled.section`
 `;
 
 const TextWrapper = styled.div`
-  max-width: 952px;
+  max-width: 1000px;
   padding: 44px 20px;
   h1 {
     font-weight: bolder;

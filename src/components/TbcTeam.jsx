@@ -25,7 +25,7 @@ const TextWrapper = styled.div`
   top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 980px;
+  max-width: 1000px;
   width: 100%;
   padding: 0 20px;
   text-align: left;

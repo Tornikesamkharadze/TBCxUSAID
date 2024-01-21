@@ -45,7 +45,7 @@ const HeadingWapper = styled.div`
   width: 100%;
   background-color: rgb(22, 22, 22);
   div {
-    max-width: 962px;
+    max-width: 1000px;
     width: 100%;
   }
   .heading6 {
@@ -64,18 +64,18 @@ const CardsWrapper = styled.section`
 `;
 
 const CardGrid = styled.div`
-  padding: 0px 0px 0px 20px;
+  padding: 0px 20px 0px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  max-width: 962px;
+  max-width: 1000px;
   width: 100%;
   cursor: default;
   padding-bottom: 50px;
 `;
 
 const Card = styled.div`
-  max-width: 300px;
+  /* max-width: 300px; */
   width: 100%;
   min-height: 414px;
   border-radius: 8px;
@@ -105,6 +105,7 @@ const Card = styled.div`
   div {
     display: flex;
     align-items: center;
+    padding-bottom: 28px;
   }
 `;
 
