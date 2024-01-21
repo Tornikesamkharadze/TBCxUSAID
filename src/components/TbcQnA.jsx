@@ -26,7 +26,7 @@ const TbcQnA = () => {
             >
               <h3>{item.question}</h3>
               <SlArrowDown
-                className={`${activeAccordion === item.id ? "rotate" : ""}`}
+                className={`${activeAccordion === item.id ? "arrowRotate" : ""}`}
               />
             </div>
             {activeAccordion === item.id ? (
@@ -53,7 +53,7 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  .arrow {
+  .arrowRotate {
     display: inline-block;
     transform: rotate(180deg);
   }
