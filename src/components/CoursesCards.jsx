@@ -77,7 +77,7 @@ const CardGrid = styled.div`
 const Card = styled.div`
   /* max-width: 300px; */
   width: 100%;
-  min-height: 414px;
+  height: auto;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 1px rgb(85, 85, 85);
@@ -106,6 +106,11 @@ const Card = styled.div`
     display: flex;
     align-items: center;
     padding-bottom: 28px;
+  }
+  @media (max-width: 775px) {
+    p {
+      margin: 0px 0px 25px 15px;
+    }
   }
 `;
 
