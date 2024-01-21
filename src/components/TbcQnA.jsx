@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import QnaData from "../data/AccordionData.json";
 import styled from "styled-components";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { SlArrowDown } from "react-icons/sl";
+
 const TbcQnA = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
 
@@ -24,8 +25,8 @@ const TbcQnA = () => {
               onClick={() => handleClick(item.id)}
             >
               <h3>{item.question}</h3>
-              <MdOutlineKeyboardArrowDown
-                className={`${activeAccordion === item.id ? "arrow" : ""}`}
+              <SlArrowDown
+                className={`${activeAccordion === item.id ? "rotate" : ""}`}
               />
             </div>
             {activeAccordion === item.id ? (
