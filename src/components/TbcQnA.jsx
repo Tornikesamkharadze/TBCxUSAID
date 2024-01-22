@@ -88,7 +88,7 @@ const Wrapper = styled.section`
 const QnAwrapper = styled.div`
   max-width: 1000px;
   width: 100%;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px 70px 20px;
   .borderBottom {
     border-bottom: 1px solid rgb(53, 49, 49);
     padding: 30px 0px 30px 0px;
