@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import QnaData from "../data/AccordionData.json";
 import styled from "styled-components";
 import { SlArrowDown } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const TbcQnA = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -17,6 +18,12 @@ const TbcQnA = () => {
   return (
     <Wrapper>
       <QnAwrapper>
+        <div className="title">
+          <h2>ხშირად დასმული კითხვები</h2>
+          <Link className="desctop" to="#">
+            ყველა კითხვა
+          </Link>
+        </div>
         {QnaData.map((item) => (
           <div key={item.id} className="borderBottom">
             <div
@@ -26,7 +33,9 @@ const TbcQnA = () => {
             >
               <h3>{item.question}</h3>
               <SlArrowDown
-                className={`${activeAccordion === item.id ? "arrowRotate" : ""}`}
+                className={`${
+                  activeAccordion === item.id ? "arrowRotate" : ""
+                }`}
               />
             </div>
             {activeAccordion === item.id ? (
@@ -43,12 +52,30 @@ const TbcQnA = () => {
             ) : null}
           </div>
         ))}
+        <Link className="mobileLink" to="#">
+          ყველა კითხვა
+        </Link>
       </QnAwrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
+  .mobileLink {
+    display: none;
+    color: rgb(0, 174, 243);
+    font-size: 25px;
+    padding: 20px 0px 40px 0px;
+    text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    .desctop {
+      display: none;
+    }
+    .mobileLink {
+      display: block;
+    }
+  }
   background-color: rgb(22, 22, 22);
   display: flex;
   justify-content: center;
@@ -78,6 +105,20 @@ const QnAwrapper = styled.div`
   .note {
     color: rgb(244, 244, 244);
     line-height: 1.5;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(244, 244, 244);
+    padding-bottom: 20px;
+    a {
+      color: rgb(0, 174, 243);
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 25px;
+      font-weight: 300;
+    }
   }
   .arroowWrapper {
     display: flex;
