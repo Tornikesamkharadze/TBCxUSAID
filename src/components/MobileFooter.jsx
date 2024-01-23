@@ -44,6 +44,9 @@ const MobileFooter = () => {
 };
 
 const StyledFooter = styled.footer`
+  @media (min-width: 769px) {
+    display: none;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +67,6 @@ const FooterSocialMedia = styled.div`
   display: flex;
   max-width: 700px;
   width: 100%;
-
   justify-content: space-between;
   align-items: flex-start;
   padding: 30px 0px;
@@ -84,7 +86,7 @@ const MailWrapper = styled.div`
 
 const SocialWrapper = styled.div`
   a {
-    margin-left: 30px;
+    margin-left: 25px;
   }
 `;
 

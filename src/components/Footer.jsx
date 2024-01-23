@@ -44,6 +44,9 @@ const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
+  @media (max-width: 769px) {
+    display: none;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
