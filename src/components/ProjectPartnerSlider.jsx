@@ -14,9 +14,9 @@ const ProjectPartnerSlider = () => {
     setCur((cur - 1 + len) % len);
   };
 
-  const rightHandle = () => {
+  const rightHandle = useCallback(() => {
     setCur((cur + 1) % len);
-  };
+  }, [cur, len]);
 
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
@@ -33,19 +33,27 @@ const ProjectPartnerSlider = () => {
     }
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      rightHandle();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [rightHandle]);
+
   const handleDotClick = (id) => {
     setCur(id);
   };
 
   return (
-    <SectionWrapper
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
+    <SectionWrapper onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <SlArrowLeft className="leftBtn" onClick={leftHandle} />
       <div className="sliderWrapper">
         {SliderData.map((slide, index) => (
-          <div key={slide.id} style={{ display: index === cur ? "block" : "none" }}>
+          <div
+            key={slide.id}
+            style={{ display: index === cur ? "block" : "none" }}
+          >
             <SlideItem slide={slide} />
           </div>
         ))}
