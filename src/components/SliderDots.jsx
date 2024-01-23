@@ -29,7 +29,7 @@ const Dot = styled(({ active, ...rest }) => <div {...rest} />)`
   width: 7px;
   height: 7px;
   background-color: ${(props) =>
-    props.active ? "rgba(177, 157, 157, 0.63)" : "rgb(232, 230, 230)"};
+    props.active ? "rgb(232, 230, 230)" : "rgba(177, 157, 157, 0.63)"};
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
