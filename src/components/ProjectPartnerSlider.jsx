@@ -1,43 +1,52 @@
 import React, { useCallback, useEffect, useState } from "react";
-
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
-
 import SliderData from "../data/SliderData";
 import SlideItem from "./SlideItem";
 import SliderDots from "./SliderDots";
 import styled from "styled-components";
 
 const ProjectPartnerSlider = () => {
-  const [cur, setCur] = useState(1);
+  const [cur, setCur] = useState(0);
   const len = SliderData.length;
+  const [touchStartX, setTouchStartX] = useState(0);
 
   const leftHandle = () => {
-    setCur(cur - 1 < 0 ? len - 1 : cur - 1);
+    setCur((cur - 1 + len) % len);
   };
 
-  const rightHandle = useCallback(() => {
-    setCur(cur + 1 > len - 1 ? 0 : cur + 1);
-  }, [cur, len]);
+  const rightHandle = () => {
+    setCur((cur + 1) % len);
+  };
 
-  useEffect(() => {
-    const interval = setTimeout(() => {
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+
+    if (deltaX > 50) {
+      leftHandle();
+    } else if (deltaX < -50) {
       rightHandle();
-    }, 4000);
-    return () => clearTimeout(interval);
-  }, [rightHandle]);
+    }
+  };
 
   const handleDotClick = (id) => {
     setCur(id);
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <SlArrowLeft className="leftBtn" onClick={leftHandle} />
       <div className="sliderWrapper">
-        {/* <h1>პროექტის პარტნიორები</h1> */}
-        {SliderData.map((slide) => (
-          <div key={slide.id}>
-            {cur === slide.id && <SlideItem slide={slide} />}
+        {SliderData.map((slide, index) => (
+          <div key={slide.id} style={{ display: index === cur ? "block" : "none" }}>
+            <SlideItem slide={slide} />
           </div>
         ))}
       </div>
