@@ -80,6 +80,7 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 90px;
   .arrowRotate {
     display: inline-block;
     transform: rotate(180deg);
