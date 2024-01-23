@@ -71,6 +71,12 @@ const SectionWrapper = styled.section`
   position: relative;
   background: rgb(43, 43, 43);
   min-height: 364px;
+  @media (max-width: 975px) {
+    .leftBtn,
+    .rightBtn {
+      display: none;
+    }
+  }
   .leftBtn,
   .rightBtn {
     cursor: pointer;
