@@ -41,24 +41,27 @@ const ProjectPartnerSlider = () => {
     return () => clearInterval(interval);
   }, [rightHandle]);
 
-  const handleDotClick = (id) => {
-    setCur(id);
+  const handleDotClick = (index) => {
+    setCur(index);
   };
 
   return (
     <SectionWrapper onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      <SlArrowLeft className="leftBtn" onClick={leftHandle} />
-      <div className="sliderWrapper">
-        {SliderData.map((slide, index) => (
-          <div
-            key={slide.id}
-            style={{ display: index === cur ? "block" : "none" }}
-          >
-            <SlideItem slide={slide} />
-          </div>
-        ))}
+      <div className="contentWrapper">
+        <h3>პროექტის პარტნიორები</h3>
+        <div className="sliderWrapper">
+          {SliderData.map((slide) => (
+            <div
+              key={slide.id}
+              style={{ display: slide.id === cur ? "block" : "none" }}
+            >
+              <SlideItem slide={slide} />
+            </div>
+          ))}
+        </div>
+        <SliderDots cur={cur} len={len} onDotClick={handleDotClick} />
       </div>
-      <SliderDots cur={cur} len={len} onDotClick={handleDotClick} />
+      <SlArrowLeft className="leftBtn" onClick={leftHandle} />
       <SlArrowRight className="rightBtn" onClick={rightHandle} />
     </SectionWrapper>
   );
@@ -72,11 +75,32 @@ const SectionWrapper = styled.section`
   background: rgb(43, 43, 43);
   min-height: 364px;
   @media (max-width: 975px) {
+    min-height: 700px;
+  }
+  .contentWrapper {
+    max-width: 1000px;
+    width: 100%;
+    padding: 0px 20px;
+    position: relative;
+    h3 {
+      position: absolute;
+      font-size: 24px;
+      font-weight: 300;
+      color: #ffff;
+      top: -70px;
+    }
+    .sliderWrapper {
+      min-height: 95px;
+    }
+  }
+
+  @media (max-width: 975px) {
     .leftBtn,
     .rightBtn {
       display: none;
     }
   }
+
   .leftBtn,
   .rightBtn {
     cursor: pointer;
@@ -84,26 +108,20 @@ const SectionWrapper = styled.section`
     font-size: 40px;
     font-weight: 300;
     transform: translateY(-50%);
-    transition: color 0.3s ease;
-  }
-  .leftBtn {
+    transition: 0.3s ease;
     position: absolute;
-    left: 4%;
     top: 50%;
+  }
+
+  .leftBtn {
+    left: 4%;
   }
   .rightBtn {
-    position: absolute;
     right: 4%;
-    top: 50%;
   }
   .leftBtn:hover,
   .rightBtn:hover {
     color: gray;
-  }
-  .sliderWrapper {
-    max-width: 1000px;
-    width: 100%;
-    padding: 0px 20px;
   }
 `;
 

@@ -4,9 +4,13 @@ import styled from "styled-components";
 const SliderDots = ({ cur, len, onDotClick }) => {
   return (
     <DotsWrapper>
-      {Array.from({ length: len }).map((_, id) => {
+      {Array.from({ length: len }).map((_, index) => {
         return (
-          <Dot key={id} onClick={() => onDotClick(id)} active={cur === id} />
+          <Dot
+            key={index}
+            onClick={() => onDotClick(index)}
+            active={cur === index}
+          />
         );
       })}
     </DotsWrapper>
@@ -14,11 +18,7 @@ const SliderDots = ({ cur, len, onDotClick }) => {
 };
 
 const DotsWrapper = styled.div`
-  @media (max-width: 975px) {
-    bottom: 5%;
-  }
   position: absolute;
-  bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
