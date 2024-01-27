@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import routes from "../routes";
 import { Link } from "react-router-dom";
 import headerLogo from "../assets/images/headerLogo.png";
@@ -8,15 +8,32 @@ import { GrClose } from "react-icons/gr";
 
 const Navbar = () => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(true);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <header>
-        <Nav>
+        <Nav isScrolling={isScrolling}>
           <div className="navbar-logo">
             <Link to="/">
               <img src={headerLogo} alt="tbcx" />
@@ -54,7 +71,7 @@ const Navbar = () => {
   );
 };
 
-const Nav = styled.nav`
+const Nav = styled(({ isScrolling, ...rest }) => <nav {...rest} />)`
   @media (max-width: 975px) {
     justify-content: space-between;
     padding: 5%;
@@ -62,9 +79,14 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   height: 84px;
   padding: 0px 16%;
-  background-color: rgb(26, 30, 31);
+  background-color: ${(props) =>
+    props.isScrolling ? "rgba(26, 30, 31, 0.925)" : "rgb(26, 30, 31)"};
   #navbar {
     @media (max-width: 975px) {
       display: flex;

@@ -18,6 +18,7 @@ const TeamWrapper = styled.article`
   position: relative;
   text-align: center;
   background-color: rgb(43, 43, 43);
+  margin-top: 84px;
 `;
 
 const TextWrapper = styled.div`
